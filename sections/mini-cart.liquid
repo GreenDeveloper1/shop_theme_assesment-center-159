@@ -313,7 +313,6 @@
                           {%- if matching_product.size == 0 -%}
                             {%- assign shown_products_count = shown_products_count | plus: 1 -%}
                             {%- render 'product-item', product: product, reduced_content: true, reduced_font_size: true, hide_secondary_image: true, sizes_attribute: '(max-width: 740px) 65px, 92px' -%}
-                            {% comment %} {%- render 'product-rating', product: product, show_stars: true, review_count: 5 -%} {% endcomment %}
                           {%- endif -%}
                         {%- endfor -%}
                       </div>

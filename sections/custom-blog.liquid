@@ -1,0 +1,34 @@
+{% schema %}
+{
+  "name": "Custom Blog",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "article",
+      "name": "Blog Article",
+      "settings": [
+        {
+          "type": "text",
+          "id": "custom_text",
+          "label": "Custom Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Blog"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="custom-blog">
+  <h1>{{ blog.title }}</h1>
+  {% for article in blog.articles %}
+    <div class="article">
+      <h2><a href="{{ article.url }}">{{ article.title }}</a></h2>
+      <p>{{ article.excerpt_or_content | strip_html | truncate: 150 }}</p>
+    </div>
+  {% endfor %}
+</div>
