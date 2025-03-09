@@ -7032,7 +7032,7 @@ input:checked + .popover__choice-label::after,
 .shopify-section--header ~ .shopify-section--announcement-bar {
   top: calc(var(--enable-sticky-announcement-bar) * var(--enable-sticky-header, 0) * var(--header-height, 0px)) !important;
 }
-
+/* 
 .announcement-bar {
   display: flex;
   justify-content: center;
@@ -7113,7 +7113,7 @@ input:checked + .popover__choice-label::after,
   content: '';
   height: 100vh;
   width: 100%;
-  bottom: calc(100% - 10px); /* There is a border radius on the header on mobile so we slightly move down the overlay */
+  bottom: calc(100% - 10px); 
   background: #000000;
   opacity: 0.3;
   z-index: -1;
@@ -7262,7 +7262,7 @@ input:checked + .popover__choice-label::after,
     min-width: 495px;
     max-width: 1000px;
   }
-}
+} */
 /* Header part */
 
 .article__header {

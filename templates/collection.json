@@ -1,1 +1,16 @@
-{"sections":{"collection-banner":{"type":"collection-banner","settings":{}},"main":{"type":"main-collection","settings":{}}},"order":["collection-banner","main"]}
+{
+    "sections": {
+        "collection-banner": {
+            "type": "collection-banner",
+            "settings": {}
+        },
+        "main": {
+            "type": "main-collection",
+            "settings": {}
+        }
+    },
+    "order": [
+        "collection-banner",
+        "main"
+    ]
+}

@@ -222,11 +222,11 @@
         </div>
       </div>
 
-      {%- if settings.show_product_rating and reduced_content != true -%}
+      {% comment %} {%- if settings.show_product_rating -%} {% endcomment %}
         <a class="product-item-meta__reviews-badge text--small" href="{{ product.url }}" data-instant>
           {%- render 'product-rating', product: product,-%}
         </a>
-      {%- endif -%}
+      {% comment %} {%- endif -%} {% endcomment %}
 
       {%- if settings.product_color_display != 'hide' and reduced_content != true -%}
         {%- for color_label in color_label_list -%}

@@ -128,3 +128,51 @@
  * "photoswipe": v4.1.3. PhotoSwipe is only loaded on demand to power the zoom feature on product page. If the zoom
  * feature is disabled, then this script is never loaded.
  */
+
+  document.addEventListener("DOMContentLoaded", function() {
+    // Select the container that holds your blog post content
+    var contentContainer = document.querySelector('.post-content');
+    if (!contentContainer) return;
+    
+    // Define the regular expression pattern to match [product="SKU"]
+    var pattern = /\[product="([^"]+)"\]/g;
+    var originalHTML = contentContainer.innerHTML;
+    
+    // Replace each occurrence with a placeholder div
+    var updatedHTML = originalHTML.replace(pattern, function(match, sku) {
+      // Create a unique placeholder ID based on the SKU
+      var placeholderId = 'product-' + sku;
+      
+      // Start fetching the product details asynchronously
+      fetch('/products/' + sku + '.js')
+        .then(function(response) {
+          if (!response.ok) {
+            throw new Error('Product not found');
+          }
+          return response.json();
+        })
+        .then(function(product) {
+          // Construct the HTML for the product display
+          var productHTML = '<div class="embedded-product">' +
+                              '<img src="' + product.images[0] + '" alt="' + product.title + '"/>' +
+                              '<h2>' + product.title + '</h2>' +
+                              '<div class="product-description">' + product.body_html + '</div>' +
+                              '</div>';
+          // Replace the placeholder div with the product HTML once data is fetched
+          var placeholder = document.getElementById(placeholderId);
+          if (placeholder) {
+            placeholder.outerHTML = productHTML;
+          }
+        })
+        .catch(function(error) {
+          console.error('Error fetching product for SKU ' + sku + ':', error);
+        });
+        
+      // Return a placeholder div while the product data is loading
+      return '<div id="' + placeholderId + '">Loading product...</div>';
+    });
+    
+    // Update the content with placeholders
+    contentContainer.innerHTML = updatedHTML;
+  });
+

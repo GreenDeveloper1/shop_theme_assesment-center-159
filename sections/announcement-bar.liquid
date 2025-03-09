@@ -37,99 +37,51 @@
       {%- endif -%}
     }
   }
+  .announcement-bar {
+  }
+
 </style>
 
 {%- if section.blocks.size > 0 -%}
   <section>
-    <announcement-bar {% if section.blocks.size > 1 and section.settings.autoplay %}auto-play cycle-speed="{{ section.settings.cycle_speed | escape }}"{% endif %} class="announcement-bar {% if section.blocks.size > 1 %}announcement-bar--multiple{% endif %}">
-      {%- if section.blocks.size > 1 -%}
-        <button data-action="prev" class="tap-area tap-area--large">
-          <span class="visually-hidden">{{ 'general.accessibility.previous' | t }}</span>
-          {% render 'icon' with 'nav-arrow-left-small', direction_aware: true %}
-        </button>
-      {%- endif -%}
-
-      <div class="announcement-bar__list">
-        {%- for block in section.blocks -%}
-          {%- assign has_extra_content = false -%}
-
-          {%- if block.settings.content != blank or block.settings.image != blank -%}
-            {%- assign has_extra_content = true -%}
-          {%- endif -%}
-
-          <announcement-bar-item {% unless forloop.first %}hidden{% endunless %} {% if has_extra_content %}has-content{% endif %} class="announcement-bar__item" {{ block.shopify_attributes }}>
-            {%- case section.settings.announcement_text_size -%}
-              {%- when 'small' -%}
-                {%- assign text_size_class = 'text--xsmall' -%}
-              {%- when 'normal' -%}
-                {%- assign text_size_class = 'text--small' -%}
-              {%- when 'large' -%}
-                {%- assign text_size_class = '' -%}
-            {%- endcase -%}
-
-            <div class="announcement-bar__message {{ text_size_class }}">
-              {%- if block.settings.content != blank or block.settings.image != blank -%}
-                {%- if block.settings.learn_more_text != blank -%}
-                  <p>{{ block.settings.text | escape }} <button class="link" data-action="open-content">{{ block.settings.learn_more_text | escape }}</button></p>
-                {%- else -%}
-                  <button class="link" data-action="open-content">{{ block.settings.text | escape }}</button>
-                {%- endif -%}
-              {%- else -%}
-                <p>{{ block.settings.text | escape }}</p>
-              {%- endif -%}
-            </div>
-
-            {%- if block.settings.content != blank or block.settings.image != blank -%}
-              <div hidden class="announcement-bar__content {% if block.settings.image != blank %}has-image{% endif %}">
-                <div class="announcement-bar__content-overlay"></div>
-
-                <div class="announcement-bar__content-overflow">
-                  <div class="announcement-bar__content-inner">
-                    <button type="button" class="announcement-bar__close-button tap-area" data-action="close-content">
-                      <span class="visually-hidden">{{ 'general.accessibility.close' | t }}</span>
-                      {%- render 'icon' with 'close' -%}
-                    </button>
-
-                    {%- if block.settings.image != blank -%}
-                      {%- capture sizes_attribute -%}{% if block.settings.content != blank %}50vw{% else %}100vw{% endif %}{%- endcapture -%}
-                      {{- block.settings.image | image_url: width: block.settings.image.width | image_tag: loading: 'lazy', sizes: sizes_attribute, widths: '400,500,600,700,800,900,1000,1200,1400,1600,1800,2000,2200,2400,2600,2800,3000', class: 'announcement-bar__content-image' -}}
-                    {%- endif -%}
-
-                    {%- if block.settings.content != blank -%}
-                      <div class="announcement-bar__content-text-wrapper">
-                        <div class="announcement-bar__content-text text-container">
-                          {%- if block.settings.title != blank -%}
-                            <h3 class="heading h5">{{ block.settings.title | escape }}</h3>
-                          {%- endif -%}
-
-                          {%- if block.settings.content != blank -%}
-                            {{- block.settings.content -}}
-                          {%- endif -%}
-
-                          {%- if block.settings.button_text != blank -%}
-                            <div class="button-wrapper">
-                              <a href="{{ block.settings.button_link }}" class="button button--primary">{{ block.settings.button_text | escape }}</a>
-                            </div>
-                          {%- endif -%}
-                        </div>
-                      </div>
-                    {%- endif -%}
-                  </div>
-                </div>
-              </div>
-            {%- endif -%}
-          </announcement-bar-item>
-        {%- endfor -%}
+    <div class="announcement-bar">
+      <div class="announcement-container">
+        <div class="announcement-item">
+          <svg class="announcement-icon" viewBox="0 0 20 20">
+            <path d="M6 2a1 1 0 011-1h6a1 1 0 011 1h4a1 1 0 011 1v4a1 1 0 01-1 1h-1v9a2 2 0 01-2 2H4a2 2 0 01-2-2V8H1a1 1 0 01-1-1V3a1 1 0 011-1h4zm3 0v1h2V2H9zM4 8v9h12V8H4zm2 2h8v2H6v-2zm0 4h8v2H6v-2z"></path>
+          </svg>
+          <span>Gratis Versand ab 100€</span>
+        </div>
+        
+        <div class="announcement-item">
+          <svg class="announcement-icon" viewBox="0 0 20 20">
+            <path d="M3 5a2 2 0 012-2h10a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5zm2 0v10h10V5H5z"></path>
+          </svg>
+          <span>Gratis Rückversand</span>
+        </div>
+  
+        <div class="announcement-item">
+          <svg class="announcement-icon" viewBox="0 0 20 20">
+            <path d="M4 4h12v12H4V4zm0-2a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V4a2 2 0 00-2-2H4z"></path>
+            <path d="M7 10h6v2H7v-2z"></path>
+          </svg>
+          <span>30 Tage Rückgaberecht</span>
+        </div>
       </div>
-
-      {%- if section.blocks.size > 1 -%}
-        <button data-action="next" class="tap-area tap-area--large">
-          <span class="visually-hidden">{{ 'general.accessibility.next' | t }}</span>
-          {% render 'icon' with 'nav-arrow-right-small', direction_aware: true %}
-        </button>
-      {%- endif -%}
-    </announcement-bar>
+    </div>
+    <div class="ed-additional-announcement-bar" style="padding: 3px 0px; background-color: #ddebeb; color: #000000;">
+            <div class="ed-announcement-bar-list add-text">
+                <div class="ed-announcement-bar-item">
+                        <!-- TrustBox widget - Micro Star --> 
+                        <div class="trustpilot-widget" id="review-announcement" data-locale="en" data-template-id="5419b732fbfb950b10de65e5" data-businessunit-id="60be1afc0498090001cadbcd" data-style-height="24px" data-style-width="100%" data-theme="light" style="position: relative;">
+                      </div> 
+                      <!-- End TrustBox widget -->
+                    <span></span>
+                </div>
+            </div>
+        </div>
   </section>
+  
 
   <script>
     document.documentElement.style.setProperty('--announcement-bar-height', document.getElementById('shopify-section-{{ section.id }}').clientHeight + 'px');
@@ -291,3 +243,39 @@
   }
 }
 {% endschema %}
+
+<style>
+  .announcement-bar {
+    background-color: #f3f4f6; 
+    padding: 8px 0; 
+  }
+  
+  .announcement-container {
+    max-width: 1024px; 
+    margin: 0 auto; 
+    display: flex;
+    justify-content: center;
+    gap: 12%; 
+    font-size: 14px; 
+  }
+  
+  .announcement-item {
+    display: flex;
+    align-items: center;
+    gap: 8px; 
+  }
+  
+  .announcement-icon {
+    width: 16px; 
+    height: 16px; 
+    fill: currentColor;
+  }
+  
+  /* Hide center announcement item on mobile */
+  @media (max-width: 640px) {
+    .announcement-container > .announcement-item:nth-child(2) {
+      display: none;
+    }
+  }
+  
+</style>
