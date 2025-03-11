@@ -75,7 +75,7 @@
 
             <page-dots class="testimonial-list__dots dots-nav hidden-tablet-and-up">
               {%- for block in section.blocks -%}
-                <button class="dots-nav__item tap-area" {% if forloop.first %}aria-current="true"{% endif %}">
+                <button class="dots-nav__item tap-area" {% if forloop.first %}aria-current="true"{% endif %}>
                   <span class="visually-hidden">{{ 'general.accessibility.go_to_slide' | t: num: forloop.index }}</span>
                 </button>
               {%- endfor -%}

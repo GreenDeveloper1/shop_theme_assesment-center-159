@@ -277,20 +277,34 @@
             </line-item>
           {%- endfor -%}
         </form>
+{% assign collection_handles = 'hydrogen,frontpage,automated-collection' | split: ',' %}
+  <script>
+    var collectionProducts = [];
+    {% for handle in collection_handles %}
+      {% assign current_collection = collections[handle] %}
+      {% if current_collection %}
+        {% for product in current_collection.products %}
+
+        {% endfor %}
+      {% endif %}
+    {% endfor %}
+  </script>
      
         {%- if section.settings.show_recommendations -%}
           <cart-drawer-recommendations section-id="{{ section.id }}" product-id="{{ cart.items.first.product_id }}" class="mini-cart__recommendations">
             {%- assign acceptable_recommendations_count = 0 -%}
 
-            {%- for product in recommendations.products -%}
+            {%- for product in current_collection.products -%}
               {%- assign matching_product = cart.items | where: 'product_id', product.id | first -%}
-
+              {% if matching_product.price!=null  %}
+                {%- assign matching_product_price = matching_product.price -%}
+              {% endif %}
               {%- if matching_product == blank -%}
                 {%- assign acceptable_recommendations_count = acceptable_recommendations_count | plus: 1 -%}
               {%- endif -%}
-            {%- endfor -%}
-
-            {%- if recommendations.performed -%}..
+            {%- endfor -%} 
+            
+            {%- if recommendations.performed -%}
               {%- if acceptable_recommendations_count > 0 -%}
                 <div class="mini-cart__recommendations-inner">
                   {%- if section.settings.recommendations_title != blank -%}
@@ -303,17 +317,27 @@
                       <div class="mini-cart__recommendations-list">
                         {%- assign shown_products_count = 0 -%}
 
-                        {%- for product in recommendations.products -%}
-                          {%- if shown_products_count >= 6 -%}
-                            {%- break -%}
-                          {%- endif -%}
-
+                        {%- for product in current_collection.products -%}
+                          {% for variant in product.variants %}
+                            {% comment %} {% if variant.price <= %} {% endcomment %}
+                            {% assign matching_price = matching_product_price | plus: 0 %}
+                            {% assign variant_price = variant.price | plus: 0 %}
+                            
+                            {% if matching_price < variant_price %}
                           {%- assign matching_product = cart.items | where: 'product_id', product.id -%}
 
                           {%- if matching_product.size == 0 -%}
                             {%- assign shown_products_count = shown_products_count | plus: 1 -%}
                             {%- render 'product-item', product: product, reduced_content: true, reduced_font_size: true, hide_secondary_image: true, sizes_attribute: '(max-width: 740px) 65px, 92px' -%}
                           {%- endif -%}
+                            {% endif %}
+                          {% endfor %}
+
+                          {% comment %} {%- if shown_products_count >= 6 -%}
+                            {%- break -%}
+                          {%- endif -%} {% endcomment %}
+
+
                         {%- endfor -%}
                       </div>
                     </div>

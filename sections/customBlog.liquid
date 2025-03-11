@@ -4,24 +4,14 @@
   <div class="blog-header-wrap">
     <div class="top-part">
       <div class="img-part">
-        <img
-          src="//www.pullup-dip.com/cdn/shop/files/blog-header-bands.png?v=1692887132"
-          alt=""
-        >
-        <img
-          src="//www.pullup-dip.com/cdn/shop/files/blog-header-parallettes.png?v=1692887059"
-          alt=""
-        >
-        <img
-          src="//www.pullup-dip.com/cdn/shop/files/blog-header-ringe.png?v=1692886942"
-          alt=""
-        >
+        <img src="//www.pullup-dip.com/cdn/shop/files/blog-header-bands.png?v=1692887132"   width="auto" height="auto" alt="" >
+        <img src="//www.pullup-dip.com/cdn/shop/files/blog-header-parallettes.png?v=1692887059"  width="auto" height="auto" alt="">
+        <img src="//www.pullup-dip.com/cdn/shop/files/blog-header-ringe.png?v=1692886942" width="auto" height="auto" alt="">
       </div>
       <div class="btn-part">
         <h4>
           <font style="vertical-align: inherit;">
-            <font style="vertical-align: inherit;">Train 100% flexibly, anywhere and anytime!</font></font
-          >
+            <font style="vertical-align: inherit;">Train 100% flexibly, anywhere and anytime!</font></font>
         </h4>
         <a href="/collections/topseller" class="btn">
           <font style="vertical-align: inherit;">
@@ -35,8 +25,7 @@
         <img
           src="//www.pullup-dip.de/cdn/shop/files/ebook_1_86288545-fe86-419e-9e75-e4329443dece.png?v=1687263827"
           alt=""
-          width="auto"
-          height="auto"
+          width="auto" height="auto"
         >
       </div>
       <div class="text-part">
@@ -85,7 +74,7 @@
   </blog-post-header>
 
   {% assign collection_handles = 'hydrogen,frontpage,automated-collection' | split: ',' %}
-
+{% comment %} {{ collection_handles|json|escape }} {% endcomment %}
   <script>
     var collectionProducts = [];
     {% for handle in collection_handles %}
@@ -93,9 +82,11 @@
       {% if current_collection %}
         {% for product in current_collection.products %}
           {% for variant in product.variants %}
+            
             collectionProducts.push({
               title: "{{ product.title | escape }}",
               sku: "{{ variant.sku | escape }}",
+              price: "{{ variant.price | escape }}",
               image: "{% if product.featured_image %}{{ product.featured_image | img_url: 'medium' }}{% else %}#{% endif %}"
             });
           {% endfor %}
@@ -118,15 +109,12 @@
 </section>
 
 <style>
-  *,
-  *:before,
-  *:after {
+  *,  *:before,  *:after {
     box-sizing: border-box !important;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  img,
-  video {
+  img,  video {
     height: auto;
     max-width: 100%;
     border-style: none;
@@ -158,7 +146,6 @@
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     text-align: center;
   }
-
   /* Input field styling */
   .lookup-container input[type='text'] {
     width: 100%;
@@ -169,7 +156,6 @@
     border-radius: 4px;
     box-sizing: border-box;
   }
-
   /* Button styling */
   .lookup-container button {
     width: 100%;
@@ -182,12 +168,9 @@
     cursor: pointer;
     transition: background 0.3s ease;
   }
-
   .lookup-container button:hover {
     background: #2980b9;
   }
-
-  /* Result styling */
   .skuProductCenter {
     text-align: center;
   }

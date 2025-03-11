@@ -3,24 +3,20 @@
     "meta": {
       "page": "Page {{ page }}"
     },
-
     "label": {
       "color": "Couleur",
       "white": "Blanc",
       "size": "Taille"
     },
-
     "breadcrumb": {
       "title": "Fil d'ariane",
       "home": "Accueil"
     },
-
     "pagination": {
       "previous_page": "Précédent",
       "next_page": "Suivant",
       "go_to_page": "Aller à la page {{page}}"
     },
-
     "accessibility": {
       "skip_to_content": "Passer au contenu",
       "close": "Fermer",
@@ -32,7 +28,6 @@
       "show_product": "Afficher le produit {{title}}",
       "star_reviews_info": "{{ rating_value }} sur {{ rating_max }} étoiles"
     },
-
     "social": {
       "facebook_share": "Partager sur Facebook",
       "pinterest_pin": "Pin sur Pinterest",
@@ -41,21 +36,17 @@
       "email_label": "E-mail",
       "follow_label": "Suivez nous sur {{ social_media }}"
     },
-
     "newsletter": {
       "email": "Votre e-mail",
       "subscribe": "S'abonner",
       "success": "Vous êtes abonné à la newsletter."
     },
-
     "faq": {
       "categories": "Catégories"
     },
-
     "form": {
       "max_characters": "{{ max_chars }} caractères au maximum"
     },
-
     "onboarding": {
       "blog_post_category": "Catégorie",
       "blog_post_title": "Article",
@@ -65,7 +56,6 @@
       "collection_title": "Collection"
     }
   },
-
   "header": {
     "general": {
       "navigation": "Navigation",
@@ -77,26 +67,22 @@
       "country": "Pays/région"
     }
   },
-
   "footer": {
     "general": {
       "language": "Langue",
       "country": "Pays/région",
       "we_accept": "Nous acceptons"
     },
-
     "newsletter": {
       "email": "Votre e-mail",
       "submit": "S'inscrire",
       "success": "Vous êtes abonné à la newsletter."
     },
-
     "cookie_bar": {
       "accept": "Accepter",
       "decline": "Refuser"
     }
   },
-
   "cart": {
     "general": {
       "title": "Panier",
@@ -131,7 +117,6 @@
         "other": "{{ count }} produits"
       }
     },
-
     "shipping_estimator": {
       "estimate_shipping": "Estimer les frais d'envoi",
       "country": "Pays",
@@ -144,7 +129,6 @@
       "error": "Une ou plusieurs erreurs se sont produites lors de la récupération des frais d'envoi :"
     }
   },
-
   "collection": {
     "general": {
       "filters": "Filtres",
@@ -170,7 +154,6 @@
         "other": "{{ count }} produits"
       }
     },
-
     "product": {
       "sold_out": "Epuisé",
       "discount_html": "Economisez {{ savings }}",
@@ -184,7 +167,6 @@
       }
     }
   },
-
   "product": {
     "general": {
       "description": "Description",
@@ -206,7 +188,6 @@
         "other": "{{ count }} avis"
       }
     },
-
     "form": {
       "choose_options": "Configurer",
       "quantity": "Quantité",
@@ -225,7 +206,6 @@
       "contact_us": "Nous contacter"
     }
   },
-
   "store_availability": {
     "general": {
       "view_store_info": "Afficher les informations de la boutique",
@@ -236,7 +216,6 @@
       "pick_up_unavailable_at": "Récupération actuellement indisponible à {{ location_name }}"
     }
   },
-
   "list_collections": {
     "general": {
       "title": "Collections",
@@ -249,7 +228,6 @@
       }
     }
   },
-
   "blog": {
     "general": {
       "empty": "Ce blog ne contient aucun article.",
@@ -258,7 +236,6 @@
       "all_posts": "Tous les articles"
     }
   },
-
   "article": {
     "general": {
       "written_by": "Par {{ author }}",
@@ -273,7 +250,6 @@
         "other": "{{ count }} minutes"
       }
     },
-
     "comments": {
       "leave_comment": "Laisser un commentaire",
       "moderated": "Tous les commentaires sont modérés avant d'être publiés.",
@@ -290,12 +266,10 @@
       }
     }
   },
-
   "customer": {
     "general": {
       "title": "Mon compte"
     },
-
     "login": {
       "title": "Connexion",
       "instructions": "Veuillez entrer votre email et mot de passe :",
@@ -306,7 +280,6 @@
       "new_customer": "Nouveau client ?",
       "create_account": "Créer un compte"
     },
-
     "recover_password": {
       "title": "Récupération du mot de passe",
       "instructions": "Veuillez entrer votre email :",
@@ -316,7 +289,6 @@
       "back_to_login": "Connexion",
       "success": "Un e-mail a été envoyé à votre adresse avec les instructions pour ré-initialiser votre mot de passe."
     },
-
     "activate_account": {
       "title": "Activation du compte",
       "instructions": "Veuillez entrer un mot de passe pour créer votre compte :",
@@ -325,7 +297,6 @@
       "submit": "Activer",
       "cancel": "Annuler"
     },
-
     "reset_password": {
       "title": "Ré-initialisation du mot de passe",
       "instructions": "Veuillez entrer un nouveau mot de passe :",
@@ -333,7 +304,6 @@
       "password_confirmation": "Confirmation du mot de passe",
       "submit": "Ré-initialiser"
     },
-
     "register": {
       "title": "Inscription",
       "instructions": "Veuillez remplir tous les champs :",
@@ -345,7 +315,6 @@
       "already_have_account": "Vous avez déjà un compte ?",
       "login": "Connexion"
     },
-
     "orders": {
       "title": "Commandes",
       "no_orders": "Vous n'avez passé aucune commande.",
@@ -378,7 +347,6 @@
       "shipping_address": "Adresse de livraison",
       "billing_address": "Adresse de facturation"
     },
-
     "addresses": {
       "title": "Adresses",
       "no_address": "Vous n'avez sauvegardé aucune adresse.",
@@ -402,12 +370,10 @@
       "province": "Région",
       "set_default": "Définir comme défaut"
     },
-
     "logout": {
       "title": "Déconnexion"
     }
   },
-
   "search": {
     "general": {
       "title": "Recherche",
@@ -423,7 +389,6 @@
       "collections": "Collections"
     }
   },
-
   "contact": {
     "form": {
       "name": "Nom",
@@ -433,7 +398,6 @@
       "successfully_sent": "Votre message a été envoyé."
     }
   },
-
   "gift_card": {
     "issued": {
       "subtext": "Voici votre carte cadeau !",
@@ -448,7 +412,6 @@
       "add_to_apple_wallet": "Ajouter à Apple Wallet",
       "go_to_store": "Aller à la boutique"
     },
-
     "recipient": {
       "checkbox": "Je veux envoyer ce produit comme cadeau",
       "email_label": "E‑mail du destinataire",
@@ -456,7 +419,6 @@
       "message_label": "Message (facultatif)"
     }
   },
-
   "password": {
     "general": {
       "store_owner": "Gérant de la boutique ?",
@@ -464,20 +426,17 @@
       "powered_by": "Cette boutique sera propulsée par",
       "enter_password": "Entrer le mot de passe"
     },
-
     "password": {
       "label": "Veuillez entrer le mot de passe pour accéder à cette boutique",
       "input": "Mot de passe",
       "submit": "Entrer"
     },
-
     "newsletter": {
       "success": "Vous êtes abonné à la newsletter.",
       "email": "Votre e-mail",
       "submit": "Me tenir informé"
     }
   },
-
   "404": {
     "general": {
       "title": "Page non trouvée",
